@@ -1,0 +1,13 @@
+.idea
+.gradle
+.allure
+*.iws
+*.iml
+*.ipr
+out/
+HELP.md
+build/
+!gradle/wrapper/
+.idea/gradle.xml
+.idea/vcs.xml
+.idea/workspace.xml
