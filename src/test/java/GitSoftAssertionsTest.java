@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -25,8 +25,10 @@ public class GitSoftAssertionsTest {
         $("#repository-container-header")
                 .shouldHave(text("selenide / selenide"));
         $("#wiki-tab").click();
-        $("[href*=SoftAssertions]")
-                .shouldHave(text("Soft assertions")).click();
+        $$("ul > li > a").findBy(text("Soft assertions")).click();
+/*      Альтернативный способ поиска (не знаю какой лучше)
+        $("[href*=SoftAssertions]").shouldHave(text("Soft assertions")).click();
+*/
         $("[id*=junit5]").scrollTo().ancestor("h4")
                 .shouldHave(text("3. Using JUnit5 extend test class:"));
         try {
