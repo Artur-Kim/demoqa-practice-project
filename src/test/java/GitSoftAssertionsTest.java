@@ -25,8 +25,8 @@ public class GitSoftAssertionsTest {
         $("#repository-container-header")
                 .shouldHave(text("selenide / selenide"));
         $("#wiki-tab").click();
-$("#wiki-pages-filter").setValue("soft");
-$$("#wiki-pages-box a").findBy(text("SoftAssertions")).click();
+        $("#wiki-pages-filter").setValue("soft");
+        $$("#wiki-pages-box a").findBy(text("SoftAssertions")).click();
         $("[id*=junit5]").scrollTo().ancestor("h4")
                 .shouldHave(text("3. Using JUnit5 extend test class:"));
         try {
