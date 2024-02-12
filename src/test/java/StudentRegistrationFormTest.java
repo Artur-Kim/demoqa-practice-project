@@ -11,7 +11,6 @@ public class StudentRegistrationFormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1366x768";
-        Configuration.browser = "chrome";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
         Configuration.baseUrl = "http://demoqa.com";
