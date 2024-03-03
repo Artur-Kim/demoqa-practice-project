@@ -1,22 +1,15 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package otherTests;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class GitSoftAssertionsTest {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1366x768";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = false;
-        Configuration.baseUrl = "http://github.com";
-    }
+public class GitSoftAssertionsTest extends TestBase {
 
     @Test
     void searchSoftAssertionsJUnit5Example() {
