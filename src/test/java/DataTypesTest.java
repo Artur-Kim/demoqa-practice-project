@@ -1,8 +1,6 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DataTypesTest {
     byte aByte = Byte.MAX_VALUE;
@@ -24,5 +22,6 @@ public class DataTypesTest {
         assertTrue(aByte == anInt);
         assertEquals(aBoolean, anInt < aLong);
         assertEquals(aShort, (short) (aChar = (Character.MAX_VALUE + 1) / 2));
+        assertEquals(1, anInt % 3);
     }
 }
