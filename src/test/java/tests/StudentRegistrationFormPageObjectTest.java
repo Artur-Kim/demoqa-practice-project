@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import other_tests.TestBase;
 import pages.RegistrationPage;
 
+import static utils.RandomUtils.*;
+import static utils.RegistrationPageRandomUtils.*;
+
 public class StudentRegistrationFormPageObjectTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -12,51 +15,51 @@ public class StudentRegistrationFormPageObjectTest extends TestBase {
     void fillRegistrationFormTest() {
 
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setEmail("iitest@m.ru")
-                .setGender("Male")
-                .setUserNumber("7925869231")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(gender)
+                .setUserNumber(phoneNumber)
                 .setPreviousMonth()
                 .setNextMonth()
-                .setDateOfBirth("8", "June", "1989")
-                .setSubject("Compu")
-                .setHobbies("Reading")
-                .uploadPicture("images/img.png")
-                .setAddress("Test city, house 17. b. 3, f. 5.")
-                .setState("Rajasthan")
-                .setCity("Jaiselmer")
+                .setDateOfBirth(day, month, year)
+                .setSubject(subject)
+                .setHobbies(hobbies)
+                .uploadPicture("images/" + imageFile)
+                .setAddress(fullTemporaryAddress)
+                .setState(state)
+                .setCity(city)
                 .clickButton()
 
                 .tableFormVisible("visible")
                 .checkTableHeaderText()
-                .checkResult("Student Name", "Ivan Ivanov")
-                .checkResult("Student Email", "iitest@m.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "7925869231")
-                .checkResult("Date of Birth", "8 June,1989")
-                .checkResult("Subjects", "Computer Science")
-                .checkResult("Hobbies", "Reading")
-                .checkResult("Picture", "img.png")
-                .checkResult("Address", "Test city, house 17. b. 3, f. 5.")
-                .checkResult("State and City", "Rajasthan Jaiselmer");
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Student Email", email)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", phoneNumber)
+                .checkResult("Date of Birth", day + " " + month + "," + year)
+                .checkResult("Subjects", subject)
+                .checkResult("Hobbies", hobbies)
+                .checkResult("Picture", imageFile)
+                .checkResult("Address", fullTemporaryAddress)
+                .checkResult("State and City", state + " " + city);
     }
 
     @Test
     void requiredFields() {
 
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setGender("Male")
-                .setUserNumber("7925869231")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
+                .setUserNumber(phoneNumber)
                 .clickButton()
 
                 .tableFormVisible("visible")
                 .checkTableHeaderText()
-                .checkResult("Student Name", "Ivan Ivanov")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "7925869231");
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", phoneNumber);
     }
 
     @Test
@@ -66,5 +69,4 @@ public class StudentRegistrationFormPageObjectTest extends TestBase {
                 .clickButton()
                 .tableFormVisible("not visible");
     }
-
 }

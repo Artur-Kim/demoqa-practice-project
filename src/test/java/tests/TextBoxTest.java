@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import other_tests.TestBase;
 import pages.TextBoxPage;
 
+import static utils.RandomUtils.*;
+
 public class TextBoxTest extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
@@ -11,16 +13,15 @@ public class TextBoxTest extends TestBase {
     @Test
     void fillAllTextBoxForm() {
         textBoxPage.openPage()
-                .setFullName("Ivanov Ivan")
-                .setEmail("awurgnpagu@mef.aw")
-                .setCurrentAddress("Test city, house 17. b. 3, f. 5.")
-                .setPermanentAddress("Test city 2, house 1. b. 6, f. 9.")
+                .setFullName(firstName + " " + lastName)
+                .setEmail(email)
+                .setCurrentAddress(fullTemporaryAddress)
+                .setPermanentAddress(fullPermanentAddress)
                 .clickButton()
 
-                .checkResult("Name:", "Ivanov Ivan")
-                .checkResult("Email:", "awurgnpagu@mef.aw")
-                .checkResult("Current Address :", "Test city, house 17. b. 3, f. 5.")
-                .checkResult("Permananet Address :", "Test city 2, house 1. b. 6, f. 9.");
+                .checkResult("Name:", firstName + " " + lastName)
+                .checkResult("Email:", email)
+                .checkResult("Current Address :", fullTemporaryAddress)
+                .checkResult("Permananet Address :", fullPermanentAddress);
     }
-
 }
